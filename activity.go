@@ -58,3 +58,7 @@ func StepWithError(ctx context.Context, transferDetails TransferDetails) error {
 
 	return errors.New("some error")
 }
+
+func GetActivityNames() []string {
+	return []string{"Deposit", "StepWithError", "WithdrawCompensation", "DepositCompensation", "Withdraw"}
+}

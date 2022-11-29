@@ -3,8 +3,6 @@ package main
 import (
 	"time"
 
-	"go.uber.org/multierr"
-
 	"go.temporal.io/sdk/temporal"
 	"go.temporal.io/sdk/workflow"
 )
@@ -34,8 +32,7 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 
 	defer func() {
 		if err != nil {
-			errCompensation := workflow.ExecuteActivity(ctx, WithdrawCompensation, transferDetails).Get(ctx, nil)
-			err = multierr.Append(err, errCompensation)
+			err = workflow.ExecuteActivity(ctx, WithdrawCompensation, transferDetails).Get(ctx, nil)
 		}
 	}()
 
@@ -46,8 +43,7 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 
 	defer func() {
 		if err != nil {
-			errCompensation := workflow.ExecuteActivity(ctx, DepositCompensation, transferDetails).Get(ctx, nil)
-			err = multierr.Append(err, errCompensation)
+			err = workflow.ExecuteActivity(ctx, DepositCompensation, transferDetails).Get(ctx, nil)
 		}
 
 		// uncomment to have time to shut down worker to simulate worker rolling update and ensure that compensation sequence preserves after restart
@@ -60,4 +56,8 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 	}
 
 	return nil
+}
+
+func GetWorkflowNames() []string {
+	return []string{"TransferMoney"}
 }
