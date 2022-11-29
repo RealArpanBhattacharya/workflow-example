@@ -54,7 +54,7 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 	if err != nil {
 		return err
 	}
-
+	return nil
 	return nil
 }
 
