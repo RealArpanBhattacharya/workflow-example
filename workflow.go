@@ -2,7 +2,6 @@ package project
 
 import (
 	"time"
-	plugin "github.com/hashicorp/go-plugin" 
 	"go.temporal.io/sdk/temporal"
 	"go.temporal.io/sdk/workflow"
 )
