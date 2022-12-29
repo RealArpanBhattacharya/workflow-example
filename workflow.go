@@ -1,8 +1,8 @@
-package main
+package project
 
 import (
 	"time"
-
+	plugin "github.com/hashicorp/go-plugin" 
 	"go.temporal.io/sdk/temporal"
 	"go.temporal.io/sdk/workflow"
 )
@@ -55,9 +55,15 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 		return err
 	}
 	return nil
-	return nil
 }
 
 func GetWorkflowNames() []string {
 	return []string{"TransferMoney"}
+}
+
+func main() {
+	// pluginMap is the map of plugins we can dispense.
+	var pluginMap = map[string]plugin.Plugin{
+		"test": TransferMoney,
+	}
 }

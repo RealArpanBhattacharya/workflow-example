@@ -1,4 +1,4 @@
-package main
+package project
 
 const TransferMoneyTaskQueue = "TRANSFER_MONEY_TASK_QUEUE"
 
