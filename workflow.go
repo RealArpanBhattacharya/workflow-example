@@ -56,6 +56,7 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 	return nil
 }
 
-func GetWorkflowNames() []string {
-	return []string{"TransferMoney"}
+func GetWorkflows() []any {
+	return []any{TransferMoney}
 }
+
