@@ -2,7 +2,10 @@ module github.com/RealArpanBhattacharya/workflow-example
 
 go 1.18
 
-require go.temporal.io/sdk v1.18.1
+require (
+	github.com/hashicorp/go-plugin v1.4.8
+	go.temporal.io/sdk v1.18.1
+)
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -16,7 +19,6 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	github.com/hashicorp/go-hclog v0.14.1 // indirect
-	github.com/hashicorp/go-plugin v1.4.8 // indirect
 	github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb // indirect
 	github.com/mattn/go-colorable v0.1.4 // indirect
 	github.com/mattn/go-isatty v0.0.10 // indirect

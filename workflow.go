@@ -60,10 +60,3 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) (err e
 func GetWorkflowNames() []string {
 	return []string{"TransferMoney"}
 }
-
-func main() {
-	// pluginMap is the map of plugins we can dispense.
-	var pluginMap = map[string]plugin.Plugin{
-		"test": TransferMoney,
-	}
-}
